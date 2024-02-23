@@ -1,2 +1,4 @@
-# newspaper-clone-app
-A newspaper website with NYT API.
+# Newspaper clone app
+A newspaper website using New York Times API. Powered by React ⚛
+
+>>> work in progress 🚧
