@@ -1,14 +1,15 @@
 import Popular from '../components/Popular';
 import Searched from '../pages/Searched';
-
+import OtherNews from '../components/OtherNews'
 
 function Home( {showSearched} ){
     //const [showSearched, setShowSearched] = useState();
 
     return (
-      <div>
+      <>
         {showSearched ? <Searched/> : <Popular />}
-      </div>
+        <OtherNews/>
+      </>
     );
 }
 export default Home;

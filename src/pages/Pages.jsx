@@ -2,6 +2,7 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 import { AnimatePresence } from "framer-motion"
 import Home from "./Home"
 import Searched from "./Searched"
+import CategoriesNews from "./CategoriesNews"
 
 
 function Pages(){
@@ -14,6 +15,7 @@ function Pages(){
             <Routes location={location} key={location.pathname}>
                 <Route path="/" element={<Home showSearched={showSearched}/>}/>
                 <Route path="/articlessearched/:search" element={<Searched/>}/>
+                <Route path="/category/:category/:buttonName" element={<CategoriesNews/>}/>
             </Routes>
         </AnimatePresence>
     )
