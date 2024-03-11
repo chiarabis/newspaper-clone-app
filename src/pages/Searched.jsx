@@ -14,7 +14,6 @@ export default function Searched() {
                 const response = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${search}&api-key=wXNVG3mc1gkxxG8gI31boCVHyMOeEDVg`); 
                 const searchedResults = response.data.response.docs;
                 setSearchArticles(searchedResults)
-                console.log(searchedResults)
             } catch(error) {
                 console.error('Error during searching:', error);
             }
@@ -35,7 +34,7 @@ export default function Searched() {
                 <h2>Results for: {search}</h2>
             </div>
 
-            <section className='searched-container'>
+            <section className='articles-container'>
                 {searchArticles.map((article, index) => {
                     const dateString = article.pub_date
                     const dateOnly = dateString.split("T")[0];

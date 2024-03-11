@@ -32,7 +32,7 @@ export default function CategoriesNews() {
                 //convertire dati xml in json: si può usare una libreria, ma l'ho fatto manualmente
                 const parser = new DOMParser();
                 const xmlDoc = parser.parseFromString(xmlData, 'text/xml');
-                console.log('doc xml', xmlDoc)
+                
                 const sectionTitle = xmlDoc.getElementsByTagName('title')[0].childNodes[0].nodeValue;
                 setSectionTitle(sectionTitle);
                 
@@ -88,43 +88,25 @@ export default function CategoriesNews() {
     return (
         <>
             <div className='articles-header'>
-                    <button type='button' className='back-button circle' onClick={handleBack}>
-                        <img src='/arrow-left.png'></img>
-                    </button>
-                    <h2>{sectionTitle}</h2>
+                <button type='button' className='back-button circle' onClick={handleBack}>
+                    <img src='/arrow-left.png'></img>
+                </button>
+                <h2>{sectionTitle}</h2>
             </div>
 
             <section className='articles-container'>
-                {/*{sectionArticles && sectionArticles.map((article, index) => (
-                    <div key={index}>
-                        <h3>{article.title}</h3>
-                        {article.image && (
-                            <img src={article.image} alt='article image' className='article-img'/>
-                        )}
-
-                        <div className='author-date'>
-                            {article.author && (
-                                <span>By {article.author}</span>
-                            )}
-                            {article.date && (
-                                <span>{article.date}</span>
-                            )}
-                        </div>
-
-                        <p>{article.description}</p>
-                        <a href={article.link}>Read more</a>
-                    </div>
-                ))}*/}
-
                 {showAllArticles ? (
                     sectionArticles.map((article, index) => (
                         <div key={index} className='article overlay'>
                             <Link to={article.link} target="_blank" rel="noopener noreferrer">
                                 <h3>{article.title}</h3>
 
-                                {article.image && (
-                                    <img src={article.image} alt='article image' className='article-img'/>
-                                )}
+                                <div className='image-container'>
+                                    {article.image && (
+                                        <img className='article-img' src={article.image} alt='article image'/>
+                                    )}
+                                </div>
+
                                 <img className='eye-icon' src='/eye.png'></img>
 
                                 <div className='author-date'>
