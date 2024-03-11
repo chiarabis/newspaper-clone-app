@@ -12,7 +12,6 @@ export default function Popular() {
             try{
                 const response = await axios.get(`https://api.nytimes.com/svc/mostpopular/v2/viewed/${period}.json?api-key=wXNVG3mc1gkxxG8gI31boCVHyMOeEDVg`)
                 setPopular(response.data.results)
-                //console.log(response.data.results)
             } catch (error) {
                 console.log('Error in fetching popular articles:', error.message)
             }
@@ -49,12 +48,18 @@ export default function Popular() {
                         <div key={index} className='article overlay'>
                             <Link to={article.url} target="_blank" rel="noopener noreferrer">
                                 <h3>{article.title}</h3>
+                                
+                                <div className='image-container'>
                                 {article.media && article.media.length > 0
                                     && article.media[0]['media-metadata']
                                     && article.media[0]['media-metadata'].length > 0
                                     && (
-                                        <img className='article-img' src={article.media[0]['media-metadata'][2].url} alt="Article Thumbnail" />
-                                    )} <img className='eye-icon' src='/eye.png'></img>
+                                        <img className='article-img' src={article.media[0]['media-metadata'][2].url} alt="article image" />
+                                    )}
+                                </div>
+                                
+                                <img className='eye-icon' src='/eye.png'></img>
+
                                 <div className='author-date'>
                                     <span>{article.byline}</span>
                                     <span>{article.published_date}</span>
@@ -68,12 +73,18 @@ export default function Popular() {
                         <div key={index} className='article overlay'>
                             <Link to={article.url} target="_blank" rel="noopener noreferrer">
                                 <h3>{article.title}</h3>
+
+                                <div className='image-container'>
                                 {article.media && article.media.length > 0
                                     && article.media[0]['media-metadata']
                                     && article.media[0]['media-metadata'].length > 0
                                     && (
                                         <img className='article-img' src={article.media[0]['media-metadata'][2].url} alt="Article Thumbnail"/>
-                                    )} <img className='eye-icon' src='/eye.png'></img>
+                                    )}
+                                </div>
+                                
+                                <img className='eye-icon' src='/eye.png'></img>
+
                                 <div className='author-date'>
                                     <span>{article.byline}</span>
                                     <span>{article.published_date}</span>

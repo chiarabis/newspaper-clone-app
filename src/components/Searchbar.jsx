@@ -17,6 +17,7 @@ export default function Searchbar() {
       
       if (!isInput && !isButton) {
         setIsButtonVisible(false);
+        handleReset();
       }
     };
 
@@ -50,19 +51,21 @@ export default function Searchbar() {
 
   return (
     <>
-    <div className='search-container'>
+    <div className='searchbar-container'>
         <input type='text' placeholder='Search...'
             onFocus={handleInputFocus}
             onBlur={handleInputBlur}
             value={search}
             onChange={(e) => setSearch(e.target.value)}></input>
+
             <button 
               className={`close-button ${isInputFocused || isButtonVisible ? 'visible' : ''}`}
               onClick={handleReset}><img src='/close.png'/>
             </button>
-        <button type='submit'
-            className={`search-button ${isInputFocused || isButtonVisible ? 'visible' : ''}`}
-            onClick={handleButtonClick}>go</button>
+
+            <button type='submit'
+              className={`search-button ${isInputFocused || isButtonVisible ? 'visible' : ''}`}
+              onClick={handleButtonClick}>go</button>
     </div>
     </>
   )
