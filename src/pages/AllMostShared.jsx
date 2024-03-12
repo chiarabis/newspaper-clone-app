@@ -41,7 +41,7 @@ export default function AllMostShared() {
     return (
         <>
             <div className="articles-header">
-                <button type='button' className='back-button circle' onClick={handleBack}>
+                <button type='button' className='back-button' onClick={handleBack}>
                     <img src='/arrow-left.png'></img>
                 </button>
                 <h2>All most shared on Facebook - {getText(period)}</h2>

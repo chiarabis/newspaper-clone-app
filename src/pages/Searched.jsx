@@ -28,7 +28,7 @@ export default function Searched() {
     return (
         <>
             <div className='articles-header'>
-                <button type='button' className='back-button circle' onClick={handleBack}>
+                <button type='button' className='back-button' onClick={handleBack}>
                     <img src='/arrow-left.png'></img>
                 </button>
                 <h2>Results for: {search}</h2>
@@ -44,15 +44,13 @@ export default function Searched() {
                             <Link to={article.web_url} target="_blank" rel="noopener noreferrer" className='link'>
                                 <h3>{article.headline.main}</h3>
                             </Link>
-                            <div className='author-date searched'>
+                            <div className='author-date flex-column'>
                                 <span>{article.byline.original}</span>
                                 <span>{dateOnly}</span>
                             </div>
                             <p>{article.abstract}</p>
                         </div>
-                    )
-                    
-                    })
+                    )})
                 }
             </section>
         </>

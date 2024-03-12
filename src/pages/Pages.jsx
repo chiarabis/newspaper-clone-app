@@ -9,7 +9,6 @@ import AllMostShared from "./AllMostShared"
 
 function Pages(){
     const location = useLocation();
-    //const showSearched = false;
     const showSearched = location.pathname.startsWith("/articlessearched/")
 
     return (
