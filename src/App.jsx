@@ -66,7 +66,7 @@ function App() {
             {subscribe && (
               <div className='body-overlay'>
                 <div className='login-container'>
-                    <img src="letter.png" alt="letter-icon" style={{width: '40px', marginBottom: '0.5rem'}}/>
+                    <img src="/letter.png" alt="letter-icon" style={{width: '40px', marginBottom: '0.5rem'}}/>
                     <h3>Subscribe to our newsletter</h3>
 
                     <button className='login-close-button' onClick={handleCloseForm}><img src='/close.png'/></button>

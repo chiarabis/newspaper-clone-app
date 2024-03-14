@@ -4,80 +4,33 @@
   --dark-dusty-blue: #30506d;
   --white: #edeef4;
   --shadow: #4d555d;
+  --light-shadow: #dadce6;
   --black: #2d2d2d;
 }
-
 body{
   font-family: "Crimson Text", serif;
   color: var(--dark-blue);
   background-color: var(--white);
+  overflow-x: hidden;
+
+  position: relative;
 }
 hr{
   color: var(--black);
 }
-/*header*/
-.title-link{
-  font-family: "Oswald", sans-serif;
-  text-transform: uppercase;
-  font-size: 3rem;
-  text-decoration: none;
-  color: var(--dark-blue);
-  cursor: pointer;
-}
-.header-container{
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 1rem;
-}
-.header-btn-container{
-  display: flex;
-}
-.header-button{
-  margin: 0 0.8rem;
-  cursor: pointer;
-  background-color: var(--light-dusty-blue);
-  border: none;
-  border-radius: 0.2rem;
-  padding: 0.5rem 1rem;
-  color: var(--dark-blue);
-  font-family: "Crimson Text", serif;
-  text-transform: uppercase;
-  box-shadow: 2px 2px 5px var(--shadow, 0.4);
-}
-.header-button:hover{
-  background-color: var(--dark-dusty-blue);
-  color: var(--white);
-}
-.header-button:focus{
-  transform: scale(0.9);
-}
-
-/*navbar*/
 .menu{
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   flex-direction: row;
   justify-content: space-between;
   margin: 1rem;
 }
-/*categories*/
-.categories-container{
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  margin-right: 5rem;
-}
-/*searchbar*/
-.search-container{
+.searchbar-container{
   position: relative;
   width: 230px;
 }
-.search-container input{
+.searchbar-container input{
   border-radius: 0.2rem;
   border: 1px solid var(--black);
   padding: 0.5rem 1rem;
@@ -136,8 +89,6 @@ hr{
 .close-button img{
   width: 15px;
 }
-
-/*popular header*/
 .articles-header{
   display: flex;
   flex-direction: row;
@@ -160,6 +111,7 @@ hr{
 .articles-container{
   display: grid;
   margin: 0 1rem;
+  margin-bottom: 1rem;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 3rem;
@@ -170,11 +122,12 @@ hr{
   flex-direction: column;
   justify-content: flex-start;
   position: relative;
+  height: auto;
 }
-.article h3, p{
+.article h3, .article p{
   text-align: justify;
 }
-.article a{
+.article a, .list-name{
   text-decoration: none;
   color: var(--dark-blue);
   font-family: "Crimson Text", serif;
@@ -187,14 +140,12 @@ hr{
   left: 0;
   width: 100%;
   height: 100%;
-  /*background-color: rgba(237, 238, 244, 0);*/
   background-color: rgba(0, 0, 0, 0);
   transition: background-color 0.3s ease-in-out;
   pointer-events: none;
   border-radius: 0.2rem;
 }
 .overlay:hover::before{
-  /*background-color: rgba(237, 238, 244, 0.5);*/
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 0.2rem;
 }
@@ -218,7 +169,7 @@ hr{
 }
 .article-img{
   width: 100%;
-  height:auto;
+  object-fit: cover;
 }
 .popular-button{
   margin: auto;
@@ -238,22 +189,12 @@ hr{
   bottom: 0;
   left: 0;
   width: 0%;
-  height: 1px;
+  height: 0.6px;
   background-color: var(--dark-blue);
   transition: width 0.3s ease-in;
 }
 .popular-button button:hover::before {
   width: 100%;
-}
-
-/*searched articles*/
-.searched-container{
-  display: grid;
-  margin: 0 1rem;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  grid-column-gap: 3rem;
-  grid-row-gap: 1rem;
 }
 .link{
   margin: 0 !important;
@@ -261,11 +202,11 @@ hr{
 .link:hover{
   text-decoration: underline !important;
 }
-.searched{
+.flex-column{
   display: flex;
   flex-direction: column;
 }
-.searched span:nth-child(2){
+.flex-column span:nth-child(2){
   margin-top: 0.3rem;
 }
 .back-button{
@@ -287,3 +228,26 @@ hr{
 }
 
 
+@media (max-width: 270px){
+  .menu{
+    display: block;
+  }
+}
+@media (max-width: 500px){
+  .searchbar-container{
+    width: 150px !important;
+  }
+  .close-button{
+    left: 100px !important;
+  }
+}
+@media (max-width: 750px){
+  .articles-container{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 500px){
+  .articles-container{
+    grid-template-columns: 1fr;
+  }
+}
