@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
 
+const apiKey = process.env.API_KEY;
 
 export default function Searched() {
     const { search } = useParams();
@@ -11,7 +12,7 @@ export default function Searched() {
     useEffect(()=> {
         const fetchData = async() => {
             try{
-                const response = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${search}&api-key=wXNVG3mc1gkxxG8gI31boCVHyMOeEDVg`); 
+                const response = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${search}&api-key=${apiKey}`); 
                 const searchedResults = response.data.response.docs;
                 setSearchArticles(searchedResults)
             } catch(error) {

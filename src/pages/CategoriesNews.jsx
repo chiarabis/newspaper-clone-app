@@ -37,12 +37,17 @@ export default function CategoriesNews() {
                 setSectionTitle(sectionTitle);
                 
                 const articles = xmlDoc.getElementsByTagName('item');
-
+                
                 const parsedArticles = Array.from(articles).map(article => {
                     const title = article.getElementsByTagName('title')[0].childNodes[0].nodeValue;
-                    const description = article.getElementsByTagName('description')[0].childNodes[0].nodeValue;
                     const link = article.getElementsByTagName('link')[0].childNodes[0].nodeValue;
-                    
+
+                    let description = '';
+                    const descriptionNode = article.getElementsByTagName('description')[0];
+                    if (descriptionNode && descriptionNode.childNodes.length > 0) {
+                        description = descriptionNode.childNodes[0].nodeValue;
+                    }
+
                     let author = '';
                     const authorNode = article.getElementsByTagName('dc:creator')[0];
                     if (authorNode){
@@ -65,11 +70,12 @@ export default function CategoriesNews() {
                     if (imageNode){
                         image = imageNode.getAttribute('url');
                     }
-
-                    return {title, description, link, author, date, image}
+                    
+                    return {title, link, description, author, date, image}
+                    
                 })
                 setSectionArticles(parsedArticles);
-
+                
             } catch(error){
                 console.error(`Error during request for "${section}":`, error)
             }
@@ -101,7 +107,7 @@ export default function CategoriesNews() {
                             <Link to={article.link} target="_blank" rel="noopener noreferrer">
                                 <h3>{article.title}</h3>
 
-                                <div className='image-container'>
+                                <div>
                                     {article.image && (
                                         <img className='article-img' src={article.image} alt='article image'/>
                                     )}

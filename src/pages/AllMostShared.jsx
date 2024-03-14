@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+const apiKey = process.env.API_KEY;
 
 export default function AllMostShared() {
     const location = useLocation();
@@ -13,7 +14,7 @@ export default function AllMostShared() {
     useEffect(() => {
         const fetchData = async() => {
             try{
-                const response = await axios.get(`https://api.nytimes.com/svc/mostpopular/v2/shared/${period}/facebook.json?api-key=wXNVG3mc1gkxxG8gI31boCVHyMOeEDVg`);
+                const response = await axios.get(`https://api.nytimes.com/svc/mostpopular/v2/shared/${period}/facebook.json?api-key=${apiKey}`);
                 setAllMostShared(response.data.results)
             } catch(error) {
                 console.log('Error in fetching all most shared articles:', error.message);
@@ -53,12 +54,13 @@ export default function AllMostShared() {
                     <Link to={article.url} target="_blank" rel="noopener noreferrer">
                         <h3>{article.title}</h3>
 
-                        <div className='image-container'>
+                        <div>
                         {article.media && article.media.length > 0
                             && article.media[0]['media-metadata']
                             && article.media[0]['media-metadata'].length > 0
                             && (
-                                <img className='article-img' src={article.media[0]['media-metadata'][2].url} alt="article image" />
+                                <img className='article-img' src={article.media[0]['media-metadata'][2].url} alt="article image"
+                                style={{height: '150px'}}/>
                             )}
                         </div>
                         

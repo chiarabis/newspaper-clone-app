@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+const apiKey = process.env.API_KEY;
 
 export default function AllTopStories() {
     const location = useLocation();
@@ -13,7 +14,7 @@ export default function AllTopStories() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=wXNVG3mc1gkxxG8gI31boCVHyMOeEDVg`);
+                const response = await axios.get(`https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=${apiKey}`);
                 setAllTopStories(response.data.results);
             } catch (error) {
                 console.log('Error in fetching all top stories:', error.message);
@@ -52,9 +53,10 @@ export default function AllTopStories() {
                     <Link to={article.url} target="_blank" rel="noopener noreferrer">
                         <h3>{article.title}</h3>
 
-                        <div className="image-container">
+                        <div>
                             {article.multimedia && article.multimedia.length > 0 && (
-                                <img className='article-img' src={article.multimedia[0].url} alt='article image'/>
+                                <img className='article-img' src={article.multimedia[0].url} alt='article image'
+                                style={{height: '150px'}}/>
                             )}
                         </div>
                         
