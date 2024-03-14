@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate, Link } from 'react-router-dom'
+import '../../css/othernews.css'
 
+const apiKey = process.env.API_KEY;
 
 export default function Topstories() {
     const [section, setSection] = useState('home');
@@ -11,8 +13,8 @@ export default function Topstories() {
     useEffect(()=> {
         const fetchData = async() => {
             try{
-                const response = await axios.get(`https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=wXNVG3mc1gkxxG8gI31boCVHyMOeEDVg`);
-                setTopStories(response.data.results.slice(0, 4))
+                const response = await axios.get(`https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=${apiKey}`);
+                setTopStories(response.data.results.slice(0, 6))
             } catch(error){
                 console.log('Error in fetching articles from top stories:', error.message)
             }
@@ -55,9 +57,10 @@ export default function Topstories() {
                         <Link to={article.url} target="_blank" rel="noopener noreferrer">
                             <h4>{article.title}</h4>
                         
-                            <div className='image-container'>
+                            <div>
                             {article.multimedia && article.multimedia.length > 0 && (
-                                <img className='article-img' src={article.multimedia[0].url} alt='article image' />
+                                <img className='article-img' src={article.multimedia[0].url} alt='article image' 
+                                style={{height: '150px'}}/>
                             )}
                             </div>
             

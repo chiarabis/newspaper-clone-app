@@ -1,0 +1,107 @@
+.login-container{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+  box-sizing: border-box;
+  background-color: var(--light-shadow);
+  padding: 2rem;
+  border-radius: 0.2rem;
+}
+.login-container h3{
+  font-family: "Oswald", sans-serif;
+  margin: 0;
+}
+.login-container form{
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+.login-button{
+  border-radius: 5rem;
+  border: 2px solid var(--dark-dusty-blue);
+  background-color: transparent;
+  padding: 0.3rem 0.8rem;
+  cursor: pointer;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  color: var(--dark-dusty-blue);
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.login-button::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: var(--light-dusty-blue);
+  transition: width 0.6s ease-in-out;
+  z-index: -1;
+}
+.login-button:hover::before{
+  width: 100%;
+}
+.login-button:hover{
+  color: var(--dark-blue);
+  border: 2px solid var(--dark-blue);
+}
+.login-button:focus{
+  transform: scale(0.9);
+}
+.login-input-container{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+  align-items: flex-start;
+}
+.login-input-container label{
+  margin-bottom: 0.2rem;
+}
+.login-input-container input{
+  border-radius: 0.2rem;
+  border: 1px solid var(--black);
+  padding: 0.5rem 1rem;
+  font-family: "Crimson Text", serif;
+  color: var(--shadow);
+  font-size: 1rem;
+  outline: transparent;
+}
+.login-footer{
+  font-size: 0.8rem;
+}
+.login-footer a{
+  color: var(--dark-dusty-blue);
+  text-decoration: none;
+}
+.login-footer a:hover{
+  text-decoration: underline;
+}
+.login-close-button{
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 10px;
+  left: 230px;
+  cursor: pointer;
+}
+.login-close-button img{
+  width: 15px;
+}
+.body-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

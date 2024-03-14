@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import '../css/othernews.css'
+import '../css/book.css'
+
+const apiKey = process.env.API_KEY;
 
 export default function BookReview() {
     const [isInputFocused, setIsInputFocused] = useState(false);
@@ -18,7 +22,7 @@ export default function BookReview() {
         setIsButtonVisible(true);
         e.preventDefault();
         try {
-          const response = await axios.get(`https://api.nytimes.com/svc/books/v3/reviews.json?title=${search}&api-key=wXNVG3mc1gkxxG8gI31boCVHyMOeEDVg`);
+          const response = await axios.get(`https://api.nytimes.com/svc/books/v3/reviews.json?title=${search}&api-key=${apiKey}`);
           const reviewsByTitle = response.data.results
           setBookReviews(reviewsByTitle);
 
@@ -81,13 +85,13 @@ export default function BookReview() {
 
     return (
     <>
-        <div className='book-container'>
+        <div className='book-container section-container'>
             <div className='articles-header' style={{margin: '0'}}>
                 <h2>Book review</h2>
             </div>
 
             <div className='book-input-container'>
-                <div className='searched'>
+                <div className='flex-column'>
                     <label>Search by title:</label>
                     <div className='searchbar-container'>
                         <input type='text' placeholder='Insert a title...'
@@ -109,12 +113,12 @@ export default function BookReview() {
 
             <div style={{margin: '2rem 0'}}>
                 {(bookTitle && bookAuthor && !noResultsFound) && (
-                    <div>
+                    <div style={{marginBottom: '1rem'}}>
                         <div className='title-author'>
                             {bookTitle && (
                                 <span>Title: {bookTitle}</span>
                             )}
-                            <img src='circle.png' style={{ width: '3px', height: '100%', margin: '0 0.8rem' }} alt='divider' />
+                            <img src='circle.png' className='circle-divider' style={{height: '100%', margin: '0 0.8rem'}} alt='divider' />
                             {bookAuthor && (
                                 <span>Author: {bookAuthor}</span>
                             )}
@@ -126,15 +130,15 @@ export default function BookReview() {
                 {(noResultsFound && <h3>No results found</h3>)}
 
                 {bookReviews.length > 0 && (
-                    <div className='articles-container' style={{ margin: 0, gridTemplateRows: 'repeat(1, 1fr)' }}>
+                    <div className='book-review-container'>
                         {bookReviews.map((review, index) => (
                             <div key={index}>
                                 <p>{review.summary}</p>
                                 {review.byline && (
                                     <span>By {review.byline}</span>
                                 )}
-                                <Link to={review.url}>
-                                    <p>Read more</p>
+                                <Link to={review.url} className='review-link'>
+                                    <p>Read full review</p>
                                 </Link>
                             </div>
                         ))}

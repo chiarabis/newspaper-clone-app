@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import React from 'react'
+import '../../css/othernews.css'
 
 
 export default function Jobs() {
@@ -46,17 +47,19 @@ export default function Jobs() {
             <h2>Jobs</h2>
         </div>
 
-        <div className='side-item'>
+        <div className='scroll-item'>
             {jobsArticles && jobsArticles.map((article, index) => (
                 <React.Fragment key={index}>
                     <div className='article' style={{marginBottom: '1rem'}}>
                         <Link to={article.link} target="_blank" rel="noopener noreferrer" className='link'>
                             <p style={{textAlign: 'start'}}>{article.title}</p>
                         </Link>
-                        <span className='opinion-author'>By {article.author}</span>
+                        {article.author && (
+                            <span className='opinion-author'>By {article.author}</span>
+                        )}
                     </div>
                     {index !== jobsArticles.length - 1 &&
-                        <img src='circle.png' style={{width: '3px', height: 'auto', margin: 'auto'}}/>}
+                        <img src='circle.png' className='circle-divider'/>}
                 </React.Fragment>
             ))}
         </div>
