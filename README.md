@@ -6,7 +6,7 @@ Il progetto prevede di realizzare un'applicazione clone del sito del New York Ti
 
 
 ***
-### Obiettivo del progetto
+### 🎯 Obiettivo del progetto
 Lo scopo principale del progetto è di poter accedere alle notizie e alle informazioni attraverso la costruzione di un sito web clone del NYT. Non ho fatto una replica totale, ma ho cambiare qualche parte per renderlo più personale.
 
 Cosa deve includere il sito:
@@ -16,7 +16,9 @@ Cosa deve includere il sito:
 - Struttura dell’app organizzata e comprensibile
 - Design responsive
 
-### Struttura
+***
+### 🧱 Struttura
+Ho cercato di mantenere il layout e l’accessibilità più puliti e minimal possibile, senza troppi effetti di animazione.
 Ho ricreato la struttura generale del sito del NYT, composta da 3 macro aree:
 - HEADER
 - NAVBAR
@@ -39,5 +41,27 @@ Tutta la parte in cui vengono visualizzati gli articoli e le varie sezioni.
 ![Screenshot (2)](https://github.com/chiarabis/newspaper-clone-app/assets/124071052/8d7644f3-f864-42c7-8625-b9ca35672193)
 ![Screenshot (3)](https://github.com/chiarabis/newspaper-clone-app/assets/124071052/94dcea5d-f626-49e5-be40-e2b5942411c7)
 
+***
+### 🚩 Funzionalità principali
+- Tag ```select``` per filtrare gli articoli per periodo e sezione
+- Il bottone ```BUY``` con il link per l’acquisto dei libri nella sezione Best Sellers.
+- Searchbar: per cercare articoli specifici attraverso parole chiave e per cercare recensioni attraverso titoli dei libri.
+- Bottoni ```login``` e ```subscribe``` con i rispettivi form per accedere all’area personale e per abbonarsi alla newsletter.
+- Ogni articolo, opinione, recensione o contenuto, inoltre prevede un ```Link``` che rimanda all'articolo completo sul sito del New York Times.
 
-> work in progress 🚧
+***
+### 🛠️ Tools utilizzati
+Tra le funzionalità di React utilizzate vi sono:
+- React Hooks: useState, useEffect e useRef
+- React Router: Link, useLocation, useNavigate, useParams, Route, Routes e BrowserRouter.
+- La libreria Axios per gestire la richiesta API
+- Vite come framework di sviluppo
+
+Altre funzionalità e librerie utilizzate:
+- Alice Carousel: un componente React che fornisce gallerie e caroselli.
+- Framer Motion: una libreria per animazioni e transizioni.
+- Vercel: piattaforma per l'hosting dell'app
+
+***
+### 🚀 Link al progetto
+> https://newspaper-clone-br5yd8s63-chiaras-projects-ea049797.vercel.app
