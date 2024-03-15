@@ -8,11 +8,10 @@ import '../css/othernews.css'
 import '../css/book.css'
 import '../css/header.css'
 
-const apiKey = process.env.API_KEY;
 
 export default function BookBestSellers() {
+    const apiKey = import.meta.env.VITE_SOME_KEY;
     const [bestSellers, setBestSellers] = useState([])
-
 
     useEffect(()=> {
         const fetchData = async() => {
@@ -25,7 +24,7 @@ export default function BookBestSellers() {
             }
         }
         fetchData();
-    }, [])
+    }, [apiKey])
 
     const responsive = {
         0: { items: 1 },

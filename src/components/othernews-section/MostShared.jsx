@@ -3,9 +3,9 @@ import axios from 'axios'
 import { useNavigate, Link } from 'react-router-dom'
 import '../../css/othernews.css'
 
-const apiKey = process.env.API_KEY;
 
 export default function Mostshared() {
+    const apiKey = import.meta.env.VITE_SOME_KEY;
     const [period, setPeriod] = useState('1')
     const [mostShared, setMostShared] = useState([]);
     const navigate = useNavigate();
@@ -20,7 +20,7 @@ export default function Mostshared() {
             }
         }
         fetchData();
-    }, [period])
+    }, [period, apiKey])
     
     const handlePeriodChange = (event) => {
         setPeriod(event.target.value);

@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import axios from 'axios'
 
-const apiKey = process.env.API_KEY;
 
 export default function Popular() {
+    const apiKey = import.meta.env.VITE_SOME_KEY;
     const [popular, setPopular] = useState([])
     const [period, setPeriod] = useState('1')
     const [showAllArticles, setShowAllArticles] = useState(false);
@@ -19,7 +19,7 @@ export default function Popular() {
             }
         }
         fetchData();
-    }, [period])
+    }, [period, apiKey])
 
     const handlePeriodChange = (event) => {
         setPeriod(event.target.value);

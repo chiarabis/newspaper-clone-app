@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useState, useEffect, useRef } from 'react'
 import '../../css/categories.css'
 
+
 export default function Categories() {
   const [dropdownStates, setDropdownStates] = useState([
     { category: 'USA', isOpen: false },

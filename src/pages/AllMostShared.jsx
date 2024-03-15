@@ -3,9 +3,9 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const apiKey = process.env.API_KEY;
 
 export default function AllMostShared() {
+    const apiKey = import.meta.env.VITE_SOME_KEY;
     const location = useLocation();
     const navigate = useNavigate();
     const { period } = location.state;
@@ -21,7 +21,7 @@ export default function AllMostShared() {
             }
         }
         fetchData()
-    }, [period])
+    }, [period, apiKey])
 
     const handleBack = () => {
         navigate(-1)

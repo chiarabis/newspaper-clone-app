@@ -3,9 +3,9 @@ import axios from 'axios'
 import { useNavigate, Link } from 'react-router-dom'
 import '../../css/othernews.css'
 
-const apiKey = process.env.API_KEY;
 
 export default function Topstories() {
+    const apiKey = import.meta.env.VITE_SOME_KEY;
     const [section, setSection] = useState('home');
     const [topStories, setTopStories] = useState([]);
     const navigate = useNavigate();
@@ -20,7 +20,7 @@ export default function Topstories() {
             }
         }
         fetchData();
-    }, [section])
+    }, [section, apiKey])
 
     const handleSectionChange = (event) => {
         setSection(event.target.value);

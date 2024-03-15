@@ -4,9 +4,9 @@ import axios from 'axios';
 import '../css/othernews.css'
 import '../css/book.css'
 
-const apiKey = process.env.API_KEY;
 
 export default function BookReview() {
+    const apiKey = import.meta.env.VITE_SOME_KEY;
     const [isInputFocused, setIsInputFocused] = useState(false);
     const [isButtonVisible, setIsButtonVisible] = useState(false);
 

@@ -3,9 +3,9 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const apiKey = process.env.API_KEY;
 
 export default function AllTopStories() {
+    const apiKey = import.meta.env.VITE_SOME_KEY;
     const location = useLocation();
     const navigate = useNavigate();
     const { section } = location.state;
@@ -22,7 +22,7 @@ export default function AllTopStories() {
         }
 
         fetchData();
-    }, [section]);
+    }, [section, apiKey]);
 
     const handleBack = () => {
         navigate(-1)

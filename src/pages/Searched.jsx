@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
 
-const apiKey = process.env.API_KEY;
 
 export default function Searched() {
+    const apiKey = import.meta.env.VITE_SOME_KEY;
     const { search } = useParams();
     const [searchArticles, setSearchArticles] = useState([]);
     const navigate = useNavigate();
@@ -20,7 +20,7 @@ export default function Searched() {
             }
         }
         fetchData();
-    }, [search])
+    }, [search, apiKey])
 
     const handleBack = () => {
         navigate(-1)
