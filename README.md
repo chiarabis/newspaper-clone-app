@@ -48,20 +48,23 @@ Tutta la parte in cui vengono visualizzati gli articoli e le varie sezioni.
 - Searchbar: per cercare articoli specifici attraverso parole chiave e per cercare recensioni attraverso titoli dei libri.
 - Bottoni ```login``` e ```subscribe``` con i rispettivi form per accedere all’area personale e per abbonarsi alla newsletter.
 - Ogni articolo, opinione, recensione o contenuto, inoltre prevede un ```Link``` che rimanda all'articolo completo sul sito del New York Times.
+- Il sitoweb è responsive: il menu con le categorie diventa ad hamburger per schermi medio-piccoli (tablet e smartphone) e anche il display e le dimensioni degli articoli si adattano.
 
 ***
 ### 🛠️ Tools utilizzati
 Tra le funzionalità di React utilizzate vi sono:
-- React Hooks: useState, useEffect e useRef
-- React Router: Link, useLocation, useNavigate, useParams, Route, Routes e BrowserRouter.
-- La libreria Axios per gestire la richiesta API
-- Vite come framework di sviluppo
+- ```React Hooks```: useState, useEffect e useRef
+- ```React Router```: Link, useLocation, useNavigate, useParams, Route, Routes e BrowserRouter.
+- La libreria ```Axios``` per gestire la richiesta API
+- ```Vite``` come framework di sviluppo
 
 Altre funzionalità e librerie utilizzate:
-- Alice Carousel: un componente React che fornisce gallerie e caroselli.
-- Framer Motion: una libreria per animazioni e transizioni.
-- Vercel: piattaforma per l'hosting dell'app
+- ```Alice Carousel```: un componente React che fornisce gallerie e caroselli.
+- ```Framer Motion```: una libreria per animazioni e transizioni.
+- ```Vercel```: piattaforma per l'hosting dell'app
 
 ***
 ### 🚀 Link al progetto
-> https://newspaper-clone-br5yd8s63-chiaras-projects-ea049797.vercel.app
+https://newspaper-clone-br5yd8s63-chiaras-projects-ea049797.vercel.app
+
+***
