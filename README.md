@@ -65,6 +65,6 @@ Altre funzionalità e librerie utilizzate:
 
 ***
 ### 🚀 Link al progetto
-https://newspaper-clone-br5yd8s63-chiaras-projects-ea049797.vercel.app
+https://newspaper-clone-i4xjxyqfv-chiaras-projects-ea049797.vercel.app
 
 ***
