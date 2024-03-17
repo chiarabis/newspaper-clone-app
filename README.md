@@ -7,7 +7,7 @@ Il progetto prevede di realizzare un'applicazione clone del sito del New York Ti
 
 ***
 ### 🎯 Obiettivo del progetto
-Lo scopo principale del progetto è di poter accedere alle notizie e alle informazioni attraverso la costruzione di un sito web clone del NYT. Non ho fatto una replica totale, ma ho cambiare qualche parte per renderlo più personale.
+Lo scopo principale del progetto è di poter accedere alle notizie e alle informazioni attraverso la costruzione di un sito web clone del NYT. Non ho fatto una replica totale, ma ho cambiato qualche parte per renderlo più personale.
 
 Cosa deve includere il sito:
 - Replica della home di NYT
