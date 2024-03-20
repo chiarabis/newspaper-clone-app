@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate, Link } from 'react-router-dom'
-import '../../css/othernews.css'
+import './othernews.css'
 
 
 export default function Mostshared() {

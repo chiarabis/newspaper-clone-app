@@ -1,0 +1,123 @@
+/*categories*/
+.categories-container{
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+.hamburger-button{
+  display: none;
+}
+.hamburger-container{
+  position: relative;
+}
+@media (max-width: 950px){
+  .hamburger-button{
+    display: block;
+    background-color: transparent;
+    border: none;
+    padding: 0 0.3rem;
+    cursor: pointer;
+    z-index: 2;
+    position: relative;
+  }
+  .categories-container{display: none;}
+  .categories-container.open{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0%;
+    top: -10%;
+    background-color: white;
+    border-radius: 0.2rem;
+    padding: 1rem 2rem;
+    padding-top: 2.5rem;
+    margin: 0;
+    z-index: 1;
+    width: max-content;
+  }
+  .category{
+    margin: 1rem 0;
+  }
+  .dropdown{
+    position: relative !important;
+  }
+  .dropdown li{
+    padding: 0.3rem 0.2rem !important;
+  }
+}
+@media (max-width: 270px){
+  .hamburger-container{
+    padding-top: 1rem;
+  }
+  .categories-container.open{
+    position: absolute;
+    top: 25%;
+    left: 0;
+    align-items: center;
+  }
+  .dropdown li{
+    text-align: center;
+  }
+  .category{
+    text-align: center;
+  }
+}
+.categories-container li{
+  list-style-type: none;
+}
+.category{
+  position: relative;
+}
+.category-title{
+  cursor: pointer;
+  margin: 0 1rem;
+  padding: 0 0.2rem;
+  position: relative;
+}
+.category-title::before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 0.5px;
+  background-color: var(--light-dusty-blue);
+  transition: width 0.3s ease-in;
+}
+.category-title:hover{
+  color: var(--light-dusty-blue);
+}
+.category-title:hover::before{
+  width: 100%;
+}
+.colored{
+  color: var(--light-dusty-blue);
+}
+.dropdown{
+  cursor: pointer;
+  position: absolute;
+  top: 130%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.2rem;
+  padding: 0.3rem 1rem;
+  width: max-content;
+  z-index: 1;
+}
+.dropdown li{
+  padding: 0.3rem 0;
+}
+.dropdown-btn{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: "Crimson Text", serif;
+  color: var(--dark-blue);
+  font-size: 1rem;
+  padding: 0;
+}
+.dropdown-btn:hover{
+  color: var(--light-dusty-blue);
+}

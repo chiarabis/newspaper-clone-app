@@ -1,0 +1,59 @@
+.title-link{
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: var(--dark-blue);
+  cursor: pointer;
+}
+
+.title-link h1{
+  margin: 0;
+}
+.header-container{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0 1rem;
+}
+.title{
+  grid-column: span 2;
+  text-align: center;
+  margin: 1rem 0;
+}
+.date{
+  display: flex;
+  align-items: center;
+}
+.buttons{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.header-button{
+  cursor: pointer;
+  background-color: var(--light-dusty-blue);
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.5rem 1rem;
+  color: var(--dark-blue);
+  font-family: "Crimson Text", serif;
+  text-transform: uppercase;
+  box-shadow: 0px 2px 5px var(--shadow);
+}
+.header-button:hover{
+  background-color: var(--dark-dusty-blue);
+  color: var(--white);
+}
+.header-button:focus{
+  transform: scale(0.9);
+}
+
+
+@media (max-width: 750px) {
+  .header-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+  }
+}

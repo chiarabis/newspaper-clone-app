@@ -1,18 +1,39 @@
+import { useState, useEffect } from 'react';
 import Popular from '../components/Popular';
-import Searched from '../pages/Searched';
-import OtherNews from '../components/OtherNews';
-import BookBestSellers from '../components/BookBestSellers';
-import BookReview from '../components/BookReview';
+import OtherNews from '../components/othernews-section/OtherNews';
+import BookBestSellers from '../components/book-section/BookBestSellers';
+import BookReview from '../components/book-section/BookReview';
 
-// eslint-disable-next-line react/prop-types
-function Home( {showSearched} ){
-    return (
+
+function Home(){
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadingHomepage = async () => {
+      try {
+        setTimeout(() => {
+          setLoading(false);
+        }, 3000);
+      } catch (error) {
+        console.log('Error during loading:', error.message);
+      }
+    };
+    loadingHomepage();
+  }, []);
+
+  return (
+    <>
+      {loading ? (
+        <span className="loader"></span>
+      ) : (
       <>
-        {showSearched ? <Searched/> : <Popular />}
-        <OtherNews/>
-        <BookBestSellers/>
-        <BookReview/>
+        <Popular />
+        <OtherNews />
+        <BookBestSellers />
+        <BookReview />
       </>
-    );
+      )}
+    </>
+  );
 }
 export default Home;

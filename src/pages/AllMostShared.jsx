@@ -2,10 +2,12 @@ import { Link, useNavigate } from "react-router-dom"
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 
 export default function AllMostShared() {
     const apiKey = import.meta.env.VITE_SOME_KEY;
+    const [loading, setLoading] = useState(true);
     const location = useLocation();
     const navigate = useNavigate();
     const { period } = location.state;
@@ -18,6 +20,8 @@ export default function AllMostShared() {
                 setAllMostShared(response.data.results)
             } catch(error) {
                 console.log('Error in fetching all most shared articles:', error.message);
+            } finally {
+                setLoading(false)
             }
         }
         fetchData()
@@ -41,11 +45,19 @@ export default function AllMostShared() {
 
     return (
         <>
+        <Helmet>
+            <title>Most shared news on FB - Daily Newspaper</title>
+            <meta name="description" content="Some news get viral on social media! - Here the most shared ones on FB" />
+        </Helmet>
+        {loading ? (
+            <span className='loader'></span>
+        ) : (
+        <div>
             <div className="articles-header">
                 <button type='button' className='back-button' onClick={handleBack}>
                     <img src='/arrow-left.png'></img>
                 </button>
-                <h2>All most shared on Facebook - {getText(period)}</h2>
+                <h2>Most shared news on Facebook - {getText(period)}</h2>
             </div>
 
             <div className="articles-container">
@@ -76,6 +88,8 @@ export default function AllMostShared() {
                     </div>
                 ))}
             </div>
+        </div>
+        )}
         </>
     )
 }

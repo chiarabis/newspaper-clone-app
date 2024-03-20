@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate, useLocation, Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+
 
 export default function CategoriesNews() {
+    const [loading, setLoading] = useState(true);
     const { section } = useParams();
     const location = useLocation();
     const navigate = useNavigate();
@@ -78,6 +81,8 @@ export default function CategoriesNews() {
                 
             } catch(error){
                 console.error(`Error during request for "${section}":`, error)
+            } finally {
+                setLoading(false)
             }
         }
 
@@ -93,74 +98,84 @@ export default function CategoriesNews() {
 
     return (
         <>
-            <div className='articles-header'>
-                <button type='button' className='back-button' onClick={handleBack}>
-                    <img src='/arrow-left.png'></img>
-                </button>
-                <h2>{sectionTitle}</h2>
-            </div>
+            <Helmet>
+                <title>{sectionTitle} - Daily Newspaper</title>
+                <meta name="description" content="Articles ranked by category" />
+            </Helmet>
+            {loading ? (
+                <span className='loader'></span>
+            ) : (
+            <div>
+                <div className='articles-header'>
+                    <button type='button' className='back-button' onClick={handleBack}>
+                        <img src='/arrow-left.png'></img>
+                    </button>
+                    <h2>{sectionTitle}</h2>
+                </div>
 
-            <section className='articles-container'>
-                {showAllArticles ? (
-                    sectionArticles.map((article, index) => (
-                        <div key={index} className='article overlay'>
-                            <Link to={article.link} target="_blank" rel="noopener noreferrer">
-                                <h3>{article.title}</h3>
+                <section className='articles-container'>
+                    {showAllArticles ? (
+                        sectionArticles.map((article, index) => (
+                            <div key={index} className='article overlay'>
+                                <Link to={article.link} target="_blank" rel="noopener noreferrer">
+                                    <h3>{article.title}</h3>
 
-                                <div>
+                                    <div>
+                                        {article.image && (
+                                            <img className='article-img' src={article.image} alt='article image'/>
+                                        )}
+                                    </div>
+
+                                    <img className='eye-icon' src='/eye.png'></img>
+
+                                    <div className='author-date'>
+                                        {article.author && (
+                                            <span>By {article.author}</span>
+                                        )}
+                                        {article.date && (
+                                            <span>{article.date}</span>
+                                        )}
+                                    </div>
+
+                                    <p>{article.description}</p>
+                                </Link>
+                            </div>
+                        ))
+                    ) : (
+                        sectionArticles.slice(0, 5).map((article, index) => (
+                            <div key={index} className='article overlay'>
+                                <Link to={article.link} target="_blank" rel="noopener noreferrer">
+                                    <h3>{article.title}</h3>
+
                                     {article.image && (
-                                        <img className='article-img' src={article.image} alt='article image'/>
+                                        <img src={article.image} alt='article image' className='article-img'/>
                                     )}
-                                </div>
+                                    <img className='eye-icon' src='/eye.png'></img>
 
-                                <img className='eye-icon' src='/eye.png'></img>
+                                    <div className='author-date'>
+                                        {article.author && (
+                                            <span>By {article.author}</span>
+                                        )}
+                                        {article.date && (
+                                            <span>{article.date}</span>
+                                        )}
+                                    </div>
 
-                                <div className='author-date'>
-                                    {article.author && (
-                                        <span>By {article.author}</span>
-                                    )}
-                                    {article.date && (
-                                        <span>{article.date}</span>
-                                    )}
-                                </div>
+                                    <p>{article.description}</p>
+                                </Link>
+                            </div>
+                        ))
+                    )}
 
-                                <p>{article.description}</p>
-                            </Link>
-                        </div>
-                    ))
-                ) : (
-                    sectionArticles.slice(0, 5).map((article, index) => (
-                        <div key={index} className='article overlay'>
-                            <Link to={article.link} target="_blank" rel="noopener noreferrer">
-                                <h3>{article.title}</h3>
+                    {!showAllArticles ? (
+                        <div className='popular-button'><button type='button' onClick={handleShowAll}>Show all</button></div>
+                    ) : (
+                        <div className='popular-button'><button type='button' onClick={handleReduce}>Reduce</button></div>
+                    )}
 
-                                {article.image && (
-                                    <img src={article.image} alt='article image' className='article-img'/>
-                                )}
-                                <img className='eye-icon' src='/eye.png'></img>
-
-                                <div className='author-date'>
-                                    {article.author && (
-                                        <span>By {article.author}</span>
-                                    )}
-                                    {article.date && (
-                                        <span>{article.date}</span>
-                                    )}
-                                </div>
-
-                                <p>{article.description}</p>
-                            </Link>
-                        </div>
-                    ))
-                )}
-
-                {!showAllArticles ? (
-                    <div className='popular-button'><button type='button' onClick={handleShowAll}>Show all</button></div>
-                ) : (
-                    <div className='popular-button'><button type='button' onClick={handleReduce}>Reduce</button></div>
-                )}
-
-            </section>
+                </section>
+            </div>
+            )}
         </>
     )
 }
