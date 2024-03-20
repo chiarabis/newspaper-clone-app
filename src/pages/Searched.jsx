@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
+import { Helmet } from 'react-helmet';
 
 
 export default function Searched() {
     const apiKey = import.meta.env.VITE_SOME_KEY;
+    const [loading, setLoading] = useState(true);
     const { search } = useParams();
     const [searchArticles, setSearchArticles] = useState([]);
     const navigate = useNavigate();
@@ -17,6 +19,8 @@ export default function Searched() {
                 setSearchArticles(searchedResults)
             } catch(error) {
                 console.error('Error during searching:', error);
+            } finally {
+                setLoading(false)
             }
         }
         fetchData();
@@ -28,6 +32,14 @@ export default function Searched() {
 
     return (
         <>
+        <Helmet>
+            <title>Daily Newspaper - Search</title>
+            <meta name="description" content="Choose a keyword or topic: read articles and news from all over the world!" />
+        </Helmet>
+        {loading ? (
+            <span className='loader'></span>
+        ) : (
+        <div>
             <div className='articles-header'>
                 <button type='button' className='back-button' onClick={handleBack}>
                     <img src='/arrow-left.png'></img>
@@ -54,6 +66,8 @@ export default function Searched() {
                     )})
                 }
             </section>
+        </div>
+        )}
         </>
     )
 }

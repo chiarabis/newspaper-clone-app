@@ -1,0 +1,272 @@
+:root{
+  --dark-blue: #19173a;
+  --light-dusty-blue: #75a3cd;
+  --dark-dusty-blue: #30506d;
+  --white: #f1f1f1;
+  --shadow: #4d555d;
+  --light-shadow: #dadce6;
+  --black: #2d2d2d;
+}
+body{
+  font-family: "Crimson Text", serif;
+  color: var(--dark-blue);
+  background-color: var(--white);
+  overflow-x: hidden;
+
+  position: relative;
+}
+hr{
+  color: var(--black);
+}
+.loader {
+  width: 45px;
+  height: 45px;
+  border: 5px solid var(--light-dusty-blue);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  margin: 3rem auto;
+}
+@keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+.menu{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 1rem;
+}
+.searchbar-container{
+  position: relative;
+  width: 230px;
+}
+.searchbar-container input{
+  border-radius: 0.2rem;
+  border: 1px solid var(--black);
+  padding: 0.5rem 1rem;
+  font-family: "Crimson Text", serif;
+  color: var(--shadow);
+  font-size: 1rem;
+  outline: transparent;
+  width: 100%;
+}
+.search-button{
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  border-radius: 0.2rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--dark-blue);
+  font-family: "Crimson Text", serif;
+  text-transform: uppercase;
+  background-color: var(--dark-blue);
+  color: var(--white);
+  opacity: 0;
+}
+.search-button:hover{
+  background-color: var(--dark-dusty-blue);
+  border: 1px solid var(--dark-dusty-blue);
+}
+.search-button.visible{
+  animation: rollDown 0.5s ease-in forwards;
+}
+@keyframes rollDown {
+  from {
+    transform: translateX(150%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(60%);
+    opacity: 1;
+  }
+}
+.close-button{
+  opacity: 0;
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 11px;
+  left: 180px;
+  cursor: pointer;
+}
+.close-button.visible{
+  opacity: 1;
+}
+.close-button img{
+  width: 15px;
+}
+.articles-header{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0 1rem;
+}
+.articles-header h2{
+  font-family: "Oswald", sans-serif;
+  font-size: 1.2rem;
+}
+.articles-header select{
+  margin-left: 2rem;
+  font-family: "Crimson Text", serif;
+  color: var(--dark-blue);
+  border-radius: 0.2rem;
+  border: 1px solid var(--black);
+  outline: transparent;
+}
+.articles-container{
+  display: grid;
+  margin: 0 1rem;
+  margin-bottom: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 3rem;
+  grid-row-gap: 1rem;
+}
+.article, .overlay{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  height: auto;
+}
+.article h3, .article p{
+  text-align: justify;
+}
+.article a, .list-name{
+  text-decoration: none;
+  color: var(--dark-blue);
+  font-family: "Crimson Text", serif;
+  margin: 1rem 0;
+}
+.overlay::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.3s ease-in-out;
+  pointer-events: none;
+  border-radius: 0.2rem;
+}
+.overlay:hover::before{
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0.2rem;
+}
+.eye-icon{
+  position: absolute;
+  top: 40%;
+  left: 45%;
+  opacity: 0;
+  width: 2.5rem;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+.overlay:hover .eye-icon{
+  opacity: 1;
+}
+.author-date{
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+.article-img{
+  width: 100%;
+  object-fit: cover;
+}
+.popular-button{
+  margin: auto;
+}
+.popular-button button{
+  cursor: pointer;
+  color: var(--dark-blue);
+  border: none;
+  background-color: transparent;
+  font-family: "Crimson Text", serif;
+  text-transform: uppercase;
+  position: relative;
+}
+.popular-button button::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 0.6px;
+  background-color: var(--dark-blue);
+  transition: width 0.3s ease-in;
+}
+.popular-button button:hover::before {
+  width: 100%;
+}
+.link{
+  margin: 0 !important;
+}
+.link:hover{
+  text-decoration: underline !important;
+}
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
+.flex-column span:nth-child(2){
+  margin-top: 0.3rem;
+}
+.back-button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-right: 2rem;
+}
+.back-button img{
+  width: 1.5rem;
+  padding: 5px;
+  border: 1px solid transparent;
+  transform: translateY(12%);
+}
+.back-button img:hover{
+  border: 1px solid var(--dark-blue);
+  border-radius: 100%;
+  transition: border 0.5s ease-in;
+}
+
+
+@media (max-width: 270px){
+  .menu{
+    display: block;
+  }
+}
+@media (max-width: 500px){
+  .searchbar-container{
+    width: 150px !important;
+  }
+  .close-button{
+    left: 100px !important;
+  }
+}
+@media (max-width: 750px){
+  .articles-container{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 500px){
+  .articles-container{
+    grid-template-columns: 1fr;
+  }
+}

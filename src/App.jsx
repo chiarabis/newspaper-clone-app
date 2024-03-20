@@ -1,15 +1,18 @@
 import { useState } from "react";
-import { BrowserRouter, Link } from "react-router-dom"
-import Pages from "./pages/Pages"
-import Header from './components/header-section/Header';
-import Navbar from './components/header-section/Navbar';
+import { BrowserRouter } from "react-router-dom";
+import Pages from "./pages/Pages";
+import Header from './components/top-section/header/Header';
+import Form from "./components/top-section/form/Form";
+import Navbar from './components/top-section/Navbar';
 import Footer from "./components/Footer";
-import './css/form.css'
+import { Helmet } from "react-helmet";
+
 
 
 function App() {
   const [login, setLogin] = useState(false);
   const [subscribe, setSubscribe] = useState(false);
+
 
   const handleLoginClick = () => {
     setLogin(true);
@@ -27,67 +30,32 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <Helmet>
+          <meta charset="UTF-8" />
+          <title>Daily Newspaper</title>
+          <meta name="description" content="News from the World - Information website creates with NYT API" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <meta name="keywords" content="news, best sellers, books, opinion, breaking news, local news, world, culture, education, information, communication, media" />
+          <meta name="author" content="Chiara Bissolo" />
+          <meta property="og:title" content="Daily Newspaper" />
+          <meta property="og:description" content="News from the World - Information website creates with NYT API" />
+          <meta property="og:image" content="/image-og.png" />
+          <meta property="og:url" content="https://newspaper-clone-i4xjxyqfv-chiaras-projects-ea049797.vercel.app/" />
+          <meta property="og:type" content="website"/>
+          <link rel="canonical" href="https://newspaper-clone-i4xjxyqfv-chiaras-projects-ea049797.vercel.app/"/>
+          <link rel="icon" type="image/png" href="/favicon/favicon.ico"/>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+          <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet" />
+        </Helmet>
 
-          <Header onLoginClick={handleLoginClick} onSubscribeClick={handleSubscribeClick}/>
-          <Navbar/>
+        <Header onLoginClick={handleLoginClick} onSubscribeClick={handleSubscribeClick}/>
+        <Navbar/>
+        <Pages/>
+        <Form login={login} subscribe={subscribe} onCloseForm={handleCloseForm} />
+        <Footer/>
 
-          <Pages/>
-
-          {login && (
-              <div className='body-overlay'>
-                <div className='login-container'>
-                    <h3>Login</h3>
-                    <button className='login-close-button' onClick={handleCloseForm}><img src='/close.png'/></button>
-
-                    <form>
-                        <div className="flex-column">
-                            <div className='login-input-container'>
-                                <label>Your email:</label>
-                                <input type='email' placeholder="Email" />
-                            </div>
-
-                            <div className='login-input-container'>
-                                <label>Your password:</label>
-                                <input type="password" placeholder="Password" />
-                            </div>
-                        </div>
-                        
-                        <button type="submit" className='login-button'>Sign in</button>
-                        
-                        <div className='login-footer'>
-                            <span>Not registered? </span>
-                            <Link>Create account</Link>
-                        </div>
-                        
-                    </form>
-                </div>
-              </div>
-            )}
-
-            {subscribe && (
-              <div className='body-overlay'>
-                <div className='login-container'>
-                    <img src="/letter.png" alt="letter-icon" style={{width: '40px', marginBottom: '0.5rem'}}/>
-                    <h3>Subscribe to our newsletter</h3>
-
-                    <button className='login-close-button' onClick={handleCloseForm}><img src='/close.png'/></button>
-
-                    <form>
-                        <div className="flex-column">
-                            <div className='login-input-container'>
-                                <label>Your email:</label>
-                                <input type='email' placeholder="Email" />
-                            </div> 
-                        </div>
-                        
-                        <button type="submit" className='login-button'>Subscribe</button>
-                        
-                    </form>
-                </div>
-              </div>
-            )}
-
-            <Footer/>
       </BrowserRouter>
     </>
   )

@@ -2,7 +2,7 @@
 ## A newspaper website using New York Times API. Powered by React ⚛
 Il progetto prevede di realizzare un'applicazione clone del sito del New York Times utilizzando l'API gratuita fornita per gli sviluppatpri. É un progetto per il corso di React del master in Front-End Development di Start2Impact.
 
-![Screenshot (159)](https://github.com/chiarabis/newspaper-clone-app/assets/124071052/45f18d78-63b6-485b-bb40-21aa51b30995)
+![Screenshot (25)](https://github.com/chiarabis/newspaper-clone-app/assets/124071052/2677083a-17ee-49d0-ad59-461618d8c865)
 
 
 ***
@@ -27,12 +27,12 @@ Ho ricreato la struttura generale del sito del NYT, composta da 3 macro aree:
 ##### HEADER
 Prevede il titolo che rimanda alla homepage, la data dinamica e i due bottoni per il login e la sottoscrizione alla newsletter.
 
-![Screenshot (1)](https://github.com/chiarabis/newspaper-clone-app/assets/124071052/e6007d8d-ea72-4983-9fb2-743d041a31bb)
+![Screenshot (25) - Copia](https://github.com/chiarabis/newspaper-clone-app/assets/124071052/7f2dcd06-1de9-44f4-8372-9ee5485a8180)
 
 ##### NAVBAR
 È composta dalla barra di ricerca e dal menu responsive con le categorie.
 
-![Screenshot (22) - Copia](https://github.com/chiarabis/newspaper-clone-app/assets/124071052/171968c0-13ef-459d-994a-ac7036006dbc)
+![Screenshot (26) - Copia](https://github.com/chiarabis/newspaper-clone-app/assets/124071052/d7344a44-2b06-4b90-b377-b7b9e29bdc8e)
 
 ##### CORPO
 Tutta la parte in cui vengono visualizzati gli articoli e le varie sezioni.

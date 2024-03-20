@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import React from 'react'
-import '../../css/othernews.css'
+import './othernews.css'
 
 
 export default function Opinion() {
