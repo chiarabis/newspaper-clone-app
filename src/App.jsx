@@ -43,7 +43,7 @@ function App() {
           <meta property="og:url" href="https://newspaper-clone-aepvqmjjh-chiaras-projects-ea049797.vercel.app" />
           <meta property="og:type" content="website" />
           <link rel="canonical" href="https://newspaper-clone-aepvqmjjh-chiaras-projects-ea049797.vercel.app" />
-          <link rel="icon" type="image/png" href="/favicon/favicon.ico"/>
+          <link rel="icon" type="image/png" href="/favicon/favicon.ico" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
           <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet" />
