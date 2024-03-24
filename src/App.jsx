@@ -40,9 +40,9 @@ function App() {
           <meta property="og:title" content="Daily Newspaper" />
           <meta property="og:description" content="News from the World - Information website creates with NYT API" />
           <meta property="og:image" content="/image-og.png" />
-          <meta property="og:url" />
-          <meta property="og:type" content="website"/>
-          <link rel="canonical" />
+          <meta property="og:url" href="https://newspaper-clone-aepvqmjjh-chiaras-projects-ea049797.vercel.app" />
+          <meta property="og:type" content="website" />
+          <link rel="canonical" href="https://newspaper-clone-aepvqmjjh-chiaras-projects-ea049797.vercel.app" />
           <link rel="icon" type="image/png" href="/favicon/favicon.ico"/>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
